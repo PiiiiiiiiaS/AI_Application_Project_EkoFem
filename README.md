@@ -14,13 +14,13 @@ Starter template for the **Development of AI Applications** course final group p
 Many people struggle with recycling and are unsure how to correctly sort waste items, especially ones that don't clearly fall into a single category. Waste categorization is governed by national legislation, but generic AI advice often gets the specifics wrong, creating real friction and environmental cost when items are sorted incorrectly.
 
 ### Intended users
-Who are the primary target users of this application?
+Residents and passers-by who want a quick way to check how to dispose of an item, wherever they happen to be.
 
 ### Problem statement
-What specific problem does this application solve for those users?
+The application solves the problem of not knowing how to correctly categorize and dispose of a waste item, and additionally shows what the material actually becomes after recycling.
 
 ### Why AI is appropriate
-Why does this problem require AI / LLM capabilities rather than traditional deterministic software?
+Identifying an item from a photo or a short, informal description requires flexible, natural-language and visual understanding that rigid, rule-based software can't provide. The specific disposal rule returned will still be grounded in real national regulatory content, not the model's own unverified claims.
 
 ## Solution
 
