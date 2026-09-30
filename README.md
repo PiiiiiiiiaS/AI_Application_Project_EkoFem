@@ -1,14 +1,17 @@
-# Project name
+# WasteBuddy
 
 Starter template for the **Development of AI Applications** course final group project.
 
 ## Team members
 
-- Member 1 Name (email@example.com)
-- Member 2 Name (email@example.com)
-- Member 3 Name (email@example.com)
+- Aava
+- Marjaana
+- Patrik 
+- Piia  
 
 ## Problem
+
+Many people struggle with recycling and are unsure how to correctly sort waste items, especially ones that don't clearly fall into a single category. Waste categorization is governed by national legislation, but generic AI advice often gets the specifics wrong, creating real friction and environmental cost when items are sorted incorrectly.
 
 ### Intended users
 Who are the primary target users of this application?
