@@ -55,8 +55,8 @@ Ollama (Local LLM Server) — qwen3:8b
 
 ## Model
 
-- **Model used:** e.g., `llama3.2` (or specified local Ollama model)
-- **Selection rationale:** Why was this specific model chosen for your project (e.g., lightweight, performance, context size)?
+- **Model used:** `qwen3:8b`, run locally via Ollama.
+- **Selection rationale:** qwen3:8b is a middle-ground choice. A smaller model risks missing informal phrasing or off-topic input; a larger model would be slower and more hardware-demanding without much expected benefit for a narrow, single-label classification task. qwen3:8b should be capable enough for this task while staying practical to run locally on the team's laptops. This hasn't been tested yet across model sizes and that comparison is planned as part of the evaluation work ahead.
 
 ## Additional AI capability
 
@@ -66,12 +66,12 @@ Select at least one additional capability to implement for your final project:
 - [ ] Tools / External API integration
 - [ ] Model Context Protocol (MCP)
 - [ ] Agentic workflow (Model-selected actions based on observations)
-- [ ] Memory / Persistent state
-- [ ] Multimodal interaction (Text + Images)
+- [x] Memory / Persistent state
+- [x] Multimodal interaction (Text + Images)
 - [ ] Other: ______________________
 
 ### Capability justification
-Explain why the selected capability is useful and necessary for your application's user problem.
+Users often find it easier to photograph an item than to describe it themselves, especially for ambiguous items like mixed-material packaging. Memory is useful too: a user often checks several items in one sitting, or comes back later — a small local history of past lookups avoids making them re-describe anything. We plan to add both once the core text-based flow is working end-to-end.
 
 ## Setup
 
