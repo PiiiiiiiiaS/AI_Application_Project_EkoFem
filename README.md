@@ -24,20 +24,20 @@ Identifying an item from a photo or a short, informal description requires flexi
 
 ## Solution
 
-Briefly describe your application, its primary value proposition, and how it addresses the problem statement above.
+A user photographs an item, uploads an existing photo or picture, or types a short description. The app identifies the item, classifies it into one disposal category from a fixed list, and returns that category plus what the material is recycled into.
 
 ## Main user workflow
 
-1. **User Input:** The user submits a prompt or query via the Gradio user interface.
-2. **Processing & Guardrails:** The application service layer (`src/services/ai_service.py`) validates and formats the request.
-3. **Model Response:** The model client calls Ollama locally and returns the response back through the service layer to the UI.
+1. **User Input:** The user submits a short description of a waste item via the Gradio interface (photo input planned as a next step).
+2. **Processing & Guardrails:** The application service layer (`src/services/ai_service.py`) validates the input and formats it into a classification prompt restricted to a fixed list of disposal categories.
+3. **Model Response:** The model client calls Ollama locally (`qwen3:8b`) and returns the matched category, which the service layer pairs with the grounded disposal and recycling information before it's returned to the UI.
 
 ## Architecture
 
 Below is the initial starter architecture. As your project evolves with additional capabilities, replace or extend this diagram in [`docs/architecture.md`](docs/architecture.md).
 
 ```text
-User
+User (text, photo support planned)
   ↓
 Gradio UI (app/ui.py)
   ↓
@@ -45,10 +45,13 @@ Application / AI Service (src/services/ai_service.py)
   ↓
 Model Client (src/models/model_client.py)
   ↓
-Ollama (Local LLM Server)
+Ollama (Local LLM Server) — qwen3:8b
+
+  + data/finland_waste_categories.json (grounding lookup, not model-generated)
 ```
 
 > **Core Architectural Rule:** The user interface must NEVER communicate directly with the model client or Ollama. All interactions must pass through the service layer (`ai_service.py`).
+
 
 ## Model
 
