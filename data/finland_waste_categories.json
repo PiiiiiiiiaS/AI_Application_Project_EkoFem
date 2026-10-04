@@ -1,0 +1,199 @@
+{
+  "country": "Finland",
+  "scope_note": "National-level household waste sorting categories used to ground WasteBuddy's disposal-category answers, per the README's 'Why AI is appropriate' section. This is a fixed reference table, not a live database — the model is instructed to map identified items onto these categories rather than inventing disposal rules on its own.",
+  "sources": [
+    {
+      "name": "InfoFinland - Waste and recycling",
+      "url": "https://infofinland.fi/en/housing/waste-and-recycling",
+      "publisher": "InfoFinland (multilingual public info service, joint production of Finnish municipalities, ELY Centres and other authorities)"
+    },
+    {
+      "name": "Rinki - Sorting at home",
+      "url": "https://rinkiin.fi/en/sorting-at-home/",
+      "publisher": "Suomen Pakkauskierrätys RINKI Oy (Finland's national packaging producer responsibility organisation)"
+    },
+    {
+      "name": "Rinki - FAQs about sorting",
+      "url": "https://rinkiin.fi/en/sorting-at-home/faqs-about-sorting/",
+      "publisher": "Suomen Pakkauskierrätys RINKI Oy"
+    },
+    {
+      "name": "Rinki - Packaging recycles",
+      "url": "https://rinkiin.fi/en/sorting-at-home/packaging-recycles/",
+      "publisher": "Suomen Pakkauskierrätys RINKI Oy"
+    },
+    {
+      "name": "HSY - Clothes and textiles sorting guide",
+      "url": "https://www.hsy.fi/en/waste-and-recycling/waste-guide/sorting/clothes-and-textiles/",
+      "publisher": "HSY (Helsinki Region Environmental Services)"
+    },
+    {
+      "name": "LSJH - Post-consumer textile collection",
+      "url": "https://poistotekstiili.lsjh.fi/en/home/",
+      "publisher": "Suomen Tekstiilinkeräys LSJH Oy (Finland's national producer responsibility organisation for end-of-life textiles)"
+    }
+  ],
+  "categories": [
+    {
+      "id": "biowaste",
+      "name": "Biowaste",
+      "finnish_name": "Biojäte",
+      "belongs": [
+        "Food waste, including food that has gone bad",
+        "Coffee grounds and filters",
+        "Kitchen paper / paper towels used for food",
+        "Fruit and vegetable peels"
+      ],
+      "excludes": [
+        "Chemicals",
+        "Glass",
+        "Metals",
+        "Cat litter"
+      ],
+      "recycled_into": "Composted into soil improvement products. In some municipalities, biogas is extracted first and converted into heat and electricity, with the remaining material still composted afterwards.",
+      "notes": null
+    },
+    {
+      "id": "paper",
+      "name": "Paper",
+      "finnish_name": "Paperi",
+      "belongs": [
+        "Newspapers and magazines",
+        "Advertisement flyers",
+        "Envelopes"
+      ],
+      "excludes": [
+        "Wet or very dirty paper",
+        "Books",
+        "Gift wrapping paper",
+        "Cartons and cardboard (these go in the Cardboard category instead)"
+      ],
+      "recycled_into": "Made into new paper products such as newspapers and toilet paper.",
+      "notes": null
+    },
+    {
+      "id": "cardboard",
+      "name": "Cardboard / Carton",
+      "finnish_name": "Kartonki",
+      "belongs": [
+        "Milk and juice cartons",
+        "Cardboard boxes",
+        "Paper bags",
+        "Carton-based packaging"
+      ],
+      "excludes": [
+        "Wet cardboard",
+        "Very dirty/soiled cardboard",
+        "Gift wrapping paper"
+      ],
+      "recycled_into": "Made into corrugated cardboard, packaging cardboard, specialty papers, laminated paper, and cardboard cores. The aluminium lining inside carton packages (e.g. juice cartons) is also recovered separately.",
+      "notes": "Rule of thumb (Rinki FAQ): light food residue or a few stains are acceptable as long as the packaging does not develop an odour problem — you don't need spotless cardboard. Rinse with cold water first if it is greasy or smelly before recycling. Example: a pizza box with light grease stains can normally go in cardboard recycling; only reject it if it is soaked through, actively smelly, or has a lot of leftover food stuck to it — in that case tear off and bin the dirty part as mixed waste and recycle the clean part."
+    },
+    {
+      "id": "glass",
+      "name": "Glass",
+      "finnish_name": "Lasi",
+      "belongs": [
+        "Glass containers (bottles and jars)"
+      ],
+      "excludes": [
+        "Glass objects and glassware (drinking glasses, dishes)",
+        "Mirrors",
+        "Porcelain and ceramics",
+        "Bottle caps and jar lids (remove and sort separately, usually metal or plastic)"
+      ],
+      "recycled_into": "Melted down into new glass bottles and jars, or used in construction products such as foam glass and glass wool.",
+      "notes": null
+    },
+    {
+      "id": "metal",
+      "name": "Metal",
+      "finnish_name": "Metalli",
+      "belongs": [
+        "Metal items",
+        "Packaging whose main material is metal (tins, cans, foil, metal lids)"
+      ],
+      "excludes": [
+        "Electrical devices and batteries (go to Electrical Equipment / hazardous waste collection instead)",
+        "Large metal objects that don't fit the collection container (take to a recycling centre)"
+      ],
+      "recycled_into": "Sorted by metal type and remade into new metal packaging, bicycle frames, shovels, and car parts.",
+      "notes": "Rinki's 'scrunch test': squeeze the packaging. If it does NOT spring back to its original shape, it's metal. If it springs back, it's plastic. Useful for identifying ambiguous packaging like foil trays or film."
+    },
+    {
+      "id": "plastic",
+      "name": "Plastic",
+      "finnish_name": "Muovi",
+      "belongs": [
+        "Empty plastic food packaging",
+        "Empty detergent and shampoo bottles",
+        "Plastic bags",
+        "Empty plastic containers"
+      ],
+      "excludes": [
+        "PVC plastic (recycling code 03)",
+        "Packaging with hazardous residue left inside",
+        "Plastic objects that are not packaging (toys, toothbrushes, watering cans, furniture)"
+      ],
+      "recycled_into": "Reprocessed into everyday plastic products such as dish/toilet/clothes brushes, shoehorns, flower pots, watering cans, spray bottles, furniture components, plastic and rubbish bags, and construction parts.",
+      "notes": "Rinki's 'scrunch test' (see Metal): if the packaging springs back to its original shape after squeezing, it's plastic, not metal."
+    },
+    {
+      "id": "hazardous_waste",
+      "name": "Hazardous waste",
+      "finnish_name": "Vaarallinen jäte",
+      "belongs": [
+        "Batteries and accumulators",
+        "Paints, adhesives, and solvents",
+        "Fluorescent lamps and energy-saving light bulbs",
+        "Chemicals whose packaging carries a hazard warning symbol"
+      ],
+      "excludes": [],
+      "recycled_into": "Metals (e.g. from batteries) are recovered and reused as raw material; hazardous substances are removed and processed safely rather than reused.",
+      "notes": "Take to a designated hazardous waste collection point (e.g. Sortti station or a store take-back point) — do not put in mixed waste or biowaste."
+    },
+    {
+      "id": "electrical_equipment",
+      "name": "Electrical and electronic equipment (WEEE)",
+      "finnish_name": "Sähkö- ja elektroniikkalaitteet",
+      "belongs": [
+        "Any electric or battery-powered device",
+        "Battery-powered toys"
+      ],
+      "excludes": [],
+      "recycled_into": "Valuable metals (including gold and copper) and other materials are recovered from the components and reused as raw material for new products.",
+      "notes": "Producer take-back is free in Finland (e.g. stores selling similar products, or recycling centres) — never place in mixed waste."
+    },
+    {
+      "id": "textiles",
+      "name": "Textiles / Clothing (end-of-life)",
+      "finnish_name": "Poistotekstiili",
+      "belongs": [
+        "Damaged, worn-out, or unusable clothing (trousers, shirts, skirts)",
+        "Bedsheets, towels, and tablecloths that are no longer usable",
+        "Textiles must be clean and dry before collection"
+      ],
+      "excludes": [
+        "Underwear, socks, and hosiery (excluded for hygiene reasons)",
+        "Wet, mouldy, oily, or otherwise contaminated textiles",
+        "Carpets, shoes, bags, belts, pillows, duvets, mattresses, cushions, and soft toys (these have their own separate disposal routes)",
+        "Still-usable, wearable clothing — this should be donated or sold at a second-hand shop instead of placed in end-of-life textile collection"
+      ],
+      "recycled_into": "Collected textiles are first checked for reuse — wearable items go to second-hand/reuse markets. What can't be reused is sorted by quality, material purity, and colour to become raw material for the textile industry; textiles that can't be recycled are used as fuel at a waste-to-energy plant.",
+      "notes": "This is Finland's newest mandatory nationwide collection category, introduced under a 2023 law and run through LSJH collection points (for genuinely worn-out/damaged textiles only). Still-wearable, clean clothing should NOT go here — instead donate it via a clothing collection point (vaatekeräys), such as UFF, Fida, or the Finnish Red Cross collection containers, a Kierrätyskeskus (recycling/second-hand centre), a kirpputori (flea market), or in some areas a Rinki ecopoint that also hosts a clothing container."
+    },
+    {
+      "id": "mixed_waste",
+      "name": "Mixed / miscellaneous waste",
+      "finnish_name": "Sekajäte",
+      "belongs": [
+        "Anything that cannot be sorted into one of the other categories, or that the household chooses not to sort"
+      ],
+      "excludes": [
+        "Hazardous waste (must never go in mixed waste)"
+      ],
+      "recycled_into": "Burned at a waste-to-energy plant, producing heat and electricity for the district heating network — this is energy recovery, not material recycling.",
+      "notes": "This is the fallback category — use it only after checking the item does not fit biowaste, paper, cardboard, glass, metal, plastic, hazardous waste, or electrical equipment."
+    }
+  ]
+}
