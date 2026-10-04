@@ -1,4 +1,4 @@
-name: dev-ai-project
+name: wastebuddy-env
 
 channels:
   - conda-forge

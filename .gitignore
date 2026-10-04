@@ -1,6 +1,10 @@
 # Environment variables (Never commit secrets or local config)
 .env
 
+# Local runtime data (each person's own recently-checked-items history is
+# specific to whoever ran the app on their own machine, never shared data)
+data/user_history.json
+
 # Python bytecode and caches
 __pycache__/
 *.py[cod]
