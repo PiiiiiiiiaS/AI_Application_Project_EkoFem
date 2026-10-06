@@ -6,7 +6,7 @@ Starter template for the **Development of AI Applications** course final group p
 
 - Aava
 - Marjaana
-- Patrik.r
+- Patrik
 - Piia  
 
 ## Problem
