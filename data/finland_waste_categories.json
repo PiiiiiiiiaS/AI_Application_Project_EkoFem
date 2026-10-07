@@ -1,6 +1,6 @@
 {
   "country": "Finland",
-  "scope_note": "National-level household waste sorting categories used to ground WasteBuddy's disposal-category answers, per the README's 'Why AI is appropriate' section. This is a fixed reference table, not a live database — the model is instructed to map identified items onto these categories rather than inventing disposal rules on its own.",
+  "scope_note": "National-level household waste sorting categories used to ground WasteBuddy's disposal-category answers, per the README's 'Why AI is appropriate' section. This is a fixed reference table, not a live database — the model is instructed to map identified items onto these categories rather than inventing disposal rules on its own. Exception: the construction waste and garden waste categories depend on the local waste company, so their entries say so and point users to their own waste company.",
   "sources": [
     {
       "name": "InfoFinland - Waste and recycling",
@@ -31,6 +31,31 @@
       "name": "LSJH - Post-consumer textile collection",
       "url": "https://poistotekstiili.lsjh.fi/en/home/",
       "publisher": "Suomen Tekstiilinkeräys LSJH Oy (Finland's national producer responsibility organisation for end-of-life textiles)"
+    },
+    {
+      "name": "HSY - Construction waste (Rakennusjäte)",
+      "url": "https://www.hsy.fi/jatteet-ja-kierratys/jateopas-ja-lajitteluohjeet/lajittelu/rakennusjate/",
+      "publisher": "HSY (Helsinki Region Environmental Services)"
+    },
+    {
+      "name": "HSY - Bricks (Tiili)",
+      "url": "https://www.hsy.fi/jatteet-ja-kierratys/jateopas-ja-lajitteluohjeet/jatteet/tiili/",
+      "publisher": "HSY (Helsinki Region Environmental Services)"
+    },
+    {
+      "name": "Salpakierto - Construction and renovation waste",
+      "url": "https://salpakierto.fi/en/household-waste-sorting-instructions/costruction-and-renovation-waste/",
+      "publisher": "Salpakierto Oy (waste company, Lahti region; example of regional rules and fees)"
+    },
+    {
+      "name": "LSJH - Garden waste (Puutarhajäte)",
+      "url": "https://lsjh.fi/jate/puutarhajate/",
+      "publisher": "Lounais-Suomen Jätehuolto Oy (waste company, Southwest Finland)"
+    },
+    {
+      "name": "Kierrätys.info - Garden waste (Puutarhajäte)",
+      "url": "https://www.kierratys.info/puutarhajaete/",
+      "publisher": "Suomen Kiertovoima ry (KIVO)"
     }
   ],
   "categories": [
@@ -183,6 +208,42 @@
       "notes": "This is Finland's newest mandatory nationwide collection category, introduced under a 2023 law and run through LSJH collection points (for genuinely worn-out/damaged textiles only). Still-wearable, clean clothing should NOT go here — instead donate it via a clothing collection point (vaatekeräys), such as UFF, Fida, or the Finnish Red Cross collection containers, a Kierrätyskeskus (recycling/second-hand centre), a kirpputori (flea market), or in some areas a Rinki ecopoint that also hosts a clothing container."
     },
     {
+      "id": "construction_waste",
+      "name": "Construction and renovation waste",
+      "finnish_name": "Rakennus- ja purkujäte",
+      "belongs": [
+        "Bricks and concrete (stone aggregate)",
+        "Plasterboard (drywall)",
+        "Wood and treated wood left over from building or renovating",
+        "Sanitaryware such as old sinks and toilet bowls",
+        "Roofing felt, insulation and window glass from building work"
+      ],
+      "excludes": [
+        "Asbestos (must be packaged and labelled and only certain stations accept it - ask your waste company first)",
+        "Paints, solvents and other hazardous waste (these go in the Hazardous waste category)",
+        "Electrical equipment and lamps (these have their own categories)"
+      ],
+      "recycled_into": "Stone materials such as brick and concrete are crushed and reused as aggregate in construction. Wood and other sorted fractions are separated and used as raw material or burned as fuel to produce energy.",
+      "notes": "Does not go in household bins - HSY says bricks, for example, must not be put in mixed waste. Take small amounts (a car or trailer load) to a waste station such as an HSY Sortti station; large loads usually go to a separate site. Some materials, for example concrete, bricks and plasterboard, can be charged for while sorted wood and metal are often free, and fees and rules differ between waste companies. Check your own waste company's instructions before you go."
+    },
+    {
+      "id": "garden_waste",
+      "name": "Garden waste",
+      "finnish_name": "Puutarhajäte",
+      "belongs": [
+        "Raked leaves, grass clippings and hay",
+        "Branches and twigs from trees and shrubs, including cones",
+        "Other plant material from yard work"
+      ],
+      "excludes": [
+        "Soil and stones",
+        "Invasive alien plant species (harmful invasive plants must not be composted or put in garden waste collection)",
+        "Unsorted debris and household food waste (food waste goes in Biowaste)"
+      ],
+      "recycled_into": "Branches are chipped into mulch or wood chips (also used as renewable fuel). Leaves, grass and other raked material are composted and used in landscaping and soil improvement.",
+      "notes": "Composting garden waste at home on your own property is often the easiest option. Otherwise it is usually taken to a staffed waste station: raked leaf waste is often free for households, while large mixed loads are typically charged. IMPORTANT: garden waste rules differ between municipalities and waste companies (what is accepted, where, and the price), so always follow your own waste company's instructions."
+    },
+    {
       "id": "mixed_waste",
       "name": "Mixed / miscellaneous waste",
       "finnish_name": "Sekajäte",
@@ -193,7 +254,7 @@
         "Hazardous waste (must never go in mixed waste)"
       ],
       "recycled_into": "Burned at a waste-to-energy plant, producing heat and electricity for the district heating network — this is energy recovery, not material recycling.",
-      "notes": "This is the fallback category — use it only after checking the item does not fit biowaste, paper, cardboard, glass, metal, plastic, hazardous waste, or electrical equipment."
+      "notes": "This is the fallback category — use it only after checking the item does not fit biowaste, paper, cardboard, glass, metal, plastic, hazardous waste, electrical equipment, construction waste, or garden waste."
     }
   ]
 }

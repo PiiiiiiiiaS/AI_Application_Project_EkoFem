@@ -2,25 +2,110 @@
   {
     "id": "case-01",
     "category": "successful_case",
-    "input": "Summarize the key objectives of this project in two sentences.",
-    "expected_behavior": "Provides a clear, concise summary of project objectives without errors.",
-    "actual_result": "",
-    "status": "pending"
+    "input": "banana peel",
+    "expected_behavior": "Classifies the item as Biowaste, matching Finland's official sorting guidance.",
+    "expected_category": "Biowaste",
+    "actual_result": "Item: banana peel | Disposal category: Biowaste | Recycled into: Composted into soil improvement products. In some municipalities, biogas is extracted first and converted into heat and electricity, with the remaining material still composted afterwards.",
+    "status": "pass"
   },
   {
     "id": "case-02",
-    "category": "difficult_case",
-    "input": "Explain how quantum computing works to a 5-year-old using simple analogies.",
-    "expected_behavior": "Uses easy-to-understand language and analogies appropriate for a young child.",
-    "actual_result": "",
-    "status": "pending"
+    "category": "successful_case",
+    "input": "glass jar",
+    "expected_behavior": "Classifies the item as Glass.",
+    "expected_category": "Glass",
+    "actual_result": "Item: glass jar | Disposal category: Glass | Recycled into: Melted down into new glass bottles and jars, or used in construction products such as foam glass and glass wool.",
+    "status": "pass"
   },
   {
     "id": "case-03",
+    "category": "successful_case",
+    "input": "empty aluminum can",
+    "expected_behavior": "Classifies the item as Metal.",
+    "expected_category": "Metal",
+    "actual_result": "Item: Aluminum can | Disposal category: Metal | Recycled into: Sorted by metal type and remade into new metal packaging, bicycle frames, shovels, and car parts.",
+    "status": "pass"
+  },
+  {
+    "id": "case-04",
+    "category": "successful_case",
+    "input": "plastic shampoo bottle",
+    "expected_behavior": "Classifies the item as Plastic.",
+    "expected_category": "Plastic",
+    "actual_result": "Item: Plastic shampoo bottle | Disposal category: Plastic | Recycled into: Reprocessed into everyday plastic products such as dish/toilet/clothes brushes, shoehorns, flower pots, watering cans, spray bottles, furniture components, plastic and rubbish bags, and construction parts.",
+    "status": "pass"
+  },
+  {
+    "id": "case-05",
+    "category": "successful_case",
+    "input": "old t-shirt with holes",
+    "expected_behavior": "Classifies the item as Textiles / Clothing (end-of-life).",
+    "expected_category": "Textiles / Clothing (end-of-life)",
+    "actual_result": "Item: Old t-shirt | Disposal category: Textiles / Clothing (end-of-life) | Recycled into: Collected textiles are first checked for reuse \u2014 wearable items go to second-hand/reuse markets. What can't be reused is sorted by quality, material purity, and colour to become raw material for the textile industry; textiles that can't be recycled are used as fuel at a waste-to-energy plant.",
+    "status": "pass"
+  },
+  {
+    "id": "case-06",
+    "category": "successful_case",
+    "input": "used batteries",
+    "expected_behavior": "Classifies the item as Hazardous waste.",
+    "expected_category": "Hazardous waste",
+    "actual_result": "Item: Used Batteries | Disposal category: Hazardous waste | Recycled into: Metals (e.g. from batteries) are recovered and reused as raw material; hazardous substances are removed and processed safely rather than reused.",
+    "status": "pass"
+  },
+  {
+    "id": "case-07",
+    "category": "difficult_case",
+    "input": "broken ceramic mug",
+    "expected_behavior": "Ceramics/porcelain are explicitly excluded from Glass in the reference dataset and have no dedicated category, so a robust system should fall back to Mixed / miscellaneous waste rather than incorrectly guessing Glass just because the item is breakable and glass-like.",
+    "expected_category": "Mixed / miscellaneous waste",
+    "actual_result": "Item: Broken ceramic mug | Disposal category: Mixed / miscellaneous waste | Recycled into: Burned at a waste-to-energy plant, producing heat and electricity for the district heating network \u2014 this is energy recovery, not material recycling.",
+    "status": "pass"
+  },
+  {
+    "id": "case-08",
+    "category": "difficult_case",
+    "input": "a greasy pizza box with a lot of cheese and food stuck to it, pretty smelly",
+    "expected_behavior": "Per the reference dataset's own notes, a heavily soiled/smelly pizza box should ideally be treated as contaminated (ripped apart, dirty part as Mixed waste) rather than plain Cardboard. WasteBuddy's single-label classifier is not designed to detect contamination severity from text, so this case documents a known limitation rather than a pass/fail bug.",
+    "expected_category": null,
+    "actual_result": "Item: greasy pizza box | Disposal category: Mixed / miscellaneous waste | Recycled into: Burned at a waste-to-energy plant, producing heat and electricity for the district heating network \u2014 this is energy recovery, not material recycling.",
+    "status": "partial"
+  },
+  {
+    "id": "case-09",
+    "category": "difficult_case",
+    "input": "vaatteet",
+    "expected_behavior": "Tests behavior on non-English input (Finnish for 'clothes'), given the deliberate English-first design decision. May misclassify or fail to recognize the word as an item at all -- an expected, documented limitation rather than a bug.",
+    "expected_category": null,
+    "actual_result": "Item: Textiles | Disposal category: Textiles / Clothing (end-of-life) | Recycled into: Collected textiles are first checked for reuse \u2014 wearable items go to second-hand/reuse markets. What can't be reused is sorted by quality, material purity, and colour to become raw material for the textile industry; textiles that can't be recycled are used as fuel at a waste-to-energy plant.",
+    "status": "partial"
+  },
+  {
+    "id": "case-10",
     "category": "failure_case",
     "input": "",
-    "expected_behavior": "Gracefully rejects empty input with a friendly user error message.",
+    "expected_behavior": "Gracefully rejects empty input with a friendly user-facing message, without calling the model or crashing.",
+    "expected_category": null,
+    "actual_result": "Please describe the item (e.g. 'pizza box') before sending.",
+    "status": "pass"
+  },
+  {
+    "id": "case-11",
+    "category": "failure_case",
+    "input": "   ",
+    "expected_behavior": "Whitespace-only input is treated the same as empty input -- a friendly message, no crash.",
+    "expected_category": null,
+    "actual_result": "Please describe the item (e.g. 'pizza box') before sending.",
+    "status": "pass"
+  },
+  {
+    "id": "case-12",
+    "category": "failure_case",
+    "input": "What is the capital of France?",
+    "expected_behavior": "Out-of-scope question, unrelated to waste sorting. WasteBuddy's classification prompt now asks the model to flag this as off_topic instead of forcing a category, so the app should reply with a polite redirect back to waste sorting rather than a nonsensical classification like 'Mixed waste'.",
+    "expected_category": null,
+    "expected_marker": "doesn't look like a waste item",
     "actual_result": "",
-    "status": "pending"
+    "status": ""
   }
 ]
