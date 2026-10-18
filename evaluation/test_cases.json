@@ -23,7 +23,7 @@
     "input": "empty aluminum can",
     "expected_behavior": "Classifies the item as Metal.",
     "expected_category": "Metal",
-    "actual_result": "Item: Aluminum can | Disposal category: Metal | Recycled into: Sorted by metal type and remade into new metal packaging, bicycle frames, shovels, and car parts.",
+    "actual_result": "Item: empty aluminum can | Disposal category: Metal | Recycled into: Sorted by metal type and remade into new metal packaging, bicycle frames, shovels, and car parts.",
     "status": "pass"
   },
   {
@@ -32,7 +32,7 @@
     "input": "plastic shampoo bottle",
     "expected_behavior": "Classifies the item as Plastic.",
     "expected_category": "Plastic",
-    "actual_result": "Item: Plastic shampoo bottle | Disposal category: Plastic | Recycled into: Reprocessed into everyday plastic products such as dish/toilet/clothes brushes, shoehorns, flower pots, watering cans, spray bottles, furniture components, plastic and rubbish bags, and construction parts.",
+    "actual_result": "Item: plastic shampoo bottle | Disposal category: Plastic | Recycled into: Reprocessed into everyday plastic products such as dish/toilet/clothes brushes, shoehorns, flower pots, watering cans, spray bottles, furniture components, plastic and rubbish bags, and construction parts.",
     "status": "pass"
   },
   {
@@ -41,7 +41,7 @@
     "input": "old t-shirt with holes",
     "expected_behavior": "Classifies the item as Textiles / Clothing (end-of-life).",
     "expected_category": "Textiles / Clothing (end-of-life)",
-    "actual_result": "Item: Old t-shirt | Disposal category: Textiles / Clothing (end-of-life) | Recycled into: Collected textiles are first checked for reuse \u2014 wearable items go to second-hand/reuse markets. What can't be reused is sorted by quality, material purity, and colour to become raw material for the textile industry; textiles that can't be recycled are used as fuel at a waste-to-energy plant.",
+    "actual_result": "Item: old t-shirt | Disposal category: Textiles / Clothing (end-of-life) | Recycled into: Collected textiles are first checked for reuse \u2014 wearable items go to second-hand/reuse markets. What can't be reused is sorted by quality, material purity, and colour to become raw material for the textile industry; textiles that can't be recycled are used as fuel at a waste-to-energy plant.",
     "status": "pass"
   },
   {
@@ -50,7 +50,7 @@
     "input": "used batteries",
     "expected_behavior": "Classifies the item as Hazardous waste.",
     "expected_category": "Hazardous waste",
-    "actual_result": "Item: Used Batteries | Disposal category: Hazardous waste | Recycled into: Metals (e.g. from batteries) are recovered and reused as raw material; hazardous substances are removed and processed safely rather than reused.",
+    "actual_result": "Item: used batteries | Disposal category: Hazardous waste | Recycled into: Metals (e.g. from batteries) are recovered and reused as raw material; hazardous substances are removed and processed safely rather than reused.",
     "status": "pass"
   },
   {
@@ -59,7 +59,7 @@
     "input": "broken ceramic mug",
     "expected_behavior": "Ceramics/porcelain are explicitly excluded from Glass in the reference dataset and have no dedicated category, so a robust system should fall back to Mixed / miscellaneous waste rather than incorrectly guessing Glass just because the item is breakable and glass-like.",
     "expected_category": "Mixed / miscellaneous waste",
-    "actual_result": "Item: Broken ceramic mug | Disposal category: Mixed / miscellaneous waste | Recycled into: Burned at a waste-to-energy plant, producing heat and electricity for the district heating network \u2014 this is energy recovery, not material recycling.",
+    "actual_result": "Item: broken ceramic mug | Disposal category: Mixed / miscellaneous waste | Recycled into: Burned at a waste-to-energy plant, producing heat and electricity for the district heating network \u2014 this is energy recovery, not material recycling.",
     "status": "pass"
   },
   {
@@ -68,7 +68,7 @@
     "input": "a greasy pizza box with a lot of cheese and food stuck to it, pretty smelly",
     "expected_behavior": "Per the reference dataset's own notes, a heavily soiled/smelly pizza box should ideally be treated as contaminated (ripped apart, dirty part as Mixed waste) rather than plain Cardboard. WasteBuddy's single-label classifier is not designed to detect contamination severity from text, so this case documents a known limitation rather than a pass/fail bug.",
     "expected_category": null,
-    "actual_result": "Item: greasy pizza box | Disposal category: Mixed / miscellaneous waste | Recycled into: Burned at a waste-to-energy plant, producing heat and electricity for the district heating network \u2014 this is energy recovery, not material recycling.",
+    "actual_result": "Item: greasy pizza box | Disposal category: Cardboard / Carton | Recycled into: Made into corrugated cardboard, packaging cardboard, specialty papers, laminated paper, and cardboard cores. The aluminium lining inside carton packages (e.g. juice cartons) is also recovered separately.",
     "status": "partial"
   },
   {
@@ -105,8 +105,8 @@
     "expected_behavior": "Out-of-scope question, unrelated to waste sorting. WasteBuddy's classification prompt now asks the model to flag this as off_topic instead of forcing a category, so the app should reply with a polite redirect back to waste sorting rather than a nonsensical classification like 'Mixed waste'.",
     "expected_category": null,
     "expected_marker": "doesn't look like a waste item",
-    "actual_result": "",
-    "status": ""
+    "actual_result": "That doesn't look like a waste item to sort. WasteBuddy can only help with figuring out how to dispose of things, so try describing an item (for example 'yogurt tub' or 'old phone charger'), or upload a photo of it instead.",
+    "status": "pass"
   },
   {
     "id": "case-13",
@@ -114,8 +114,8 @@
     "input": "bricks from a wall renovation",
     "expected_behavior": "Classifies the item as Construction and renovation waste, a category added after the first evaluation round.",
     "expected_category": "Construction and renovation waste",
-    "actual_result": "",
-    "status": ""
+    "actual_result": "Item: Bricks | Disposal category: Construction and renovation waste | Recycled into: Stone materials such as brick and concrete are crushed and reused as aggregate in construction. Wood and other sorted fractions are separated and used as raw material or burned as fuel to produce energy.",
+    "status": "pass"
   },
   {
     "id": "case-14",
@@ -123,8 +123,8 @@
     "input": "grass clippings",
     "expected_behavior": "Classifies the item as Garden waste, a category added after the first evaluation round.",
     "expected_category": "Garden waste",
-    "actual_result": "",
-    "status": ""
+    "actual_result": "Item: grass clippings | Disposal category: Garden waste | Recycled into: Branches are chipped into mulch or wood chips (also used as renewable fuel). Leaves, grass and other raked material are composted and used in landscaping and soil improvement.",
+    "status": "pass"
   },
   {
     "id": "case-15",
@@ -132,8 +132,8 @@
     "input": "broken electric kettle",
     "expected_behavior": "Classifies the item as Electrical and electronic equipment (WEEE), because any electric device belongs to this category.",
     "expected_category": "Electrical and electronic equipment (WEEE)",
-    "actual_result": "",
-    "status": ""
+    "actual_result": "Item: broken electric kettle | Disposal category: Electrical and electronic equipment (WEEE) | Recycled into: Valuable metals (including gold and copper) and other materials are recovered from the components and reused as raw material for new products.",
+    "status": "pass"
   },
   {
     "id": "case-16",
@@ -141,7 +141,7 @@
     "input": "empty cereal box",
     "expected_behavior": "Classifies the item as Cardboard / Carton.",
     "expected_category": "Cardboard / Carton",
-    "actual_result": "",
-    "status": ""
+    "actual_result": "Item: empty cereal box | Disposal category: Cardboard / Carton | Recycled into: Made into corrugated cardboard, packaging cardboard, specialty papers, laminated paper, and cardboard cores. The aluminium lining inside carton packages (e.g. juice cartons) is also recovered separately.",
+    "status": "pass"
   }
 ]
