@@ -59,6 +59,18 @@ Ollama (Local Inference Server)
 
 The UI only talks to the service layer. The drop-off section (`app/drop_off_ui.py`) is an optional module: `app/ui.py` imports it inside a guarded `try/except`, so deleting that file (together with `src/services/drop_off.py` and `tests/test_drop_off.py`) removes the feature without breaking the rest of the app.
 
+### Additional capabilities in the file structure
+
+The project implements three additional AI capabilities. The course starter template contained an optional folder, `src/capabilities/`, with an empty placeholder module for each capability. These placeholders have been removed, because every capability is implemented as part of the service layer. This follows the core design rule that the user interface communicates only with the services.
+
+| Capability | Implementation | Role in the application |
+|---|---|---|
+| Multimodal interaction | `src/services/ai_service.py` and `src/models/model_client.py` | On the photo path, the vision model (`moondream`) names the item. The text model then classifies the description with the same logic as typed input. |
+| Memory and persistent state | `src/services/history.py` | Stores the last 50 checked items in `data/user_history.json`. The interface reads only the five most recent entries. |
+| External API integration | `src/services/drop_off.py` and `app/drop_off_ui.py` | Retrieves collection points from the Kierrätys.info API, based on the category of the checked item. |
+
+Keeping each capability in its own service file keeps the interface replaceable and allows every capability to be tested without a running model. The tests are in `tests/test_ai_service.py`, `tests/test_history.py` and `tests/test_drop_off.py`.
+
 ### Main flow, step by step
 
 1. The user types a description or uploads a photo in the "Check an item" section.
