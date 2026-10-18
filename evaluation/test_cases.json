@@ -75,7 +75,7 @@
     "id": "case-09",
     "category": "difficult_case",
     "input": "vaatteet",
-    "expected_behavior": "Tests behavior on non-English input (Finnish for 'clothes'), given the deliberate English-first design decision. May misclassify or fail to recognize the word as an item at all -- an expected, documented limitation rather than a bug.",
+    "expected_behavior": "Tests behavior on non-English input (Finnish for 'clothes'), given the deliberate English-first design decision. The application may misclassify the word or fail to recognize it as an item at all. This is an expected and documented limitation, not a defect.",
     "expected_category": null,
     "actual_result": "Item: Textiles | Disposal category: Textiles / Clothing (end-of-life) | Recycled into: Collected textiles are first checked for reuse \u2014 wearable items go to second-hand/reuse markets. What can't be reused is sorted by quality, material purity, and colour to become raw material for the textile industry; textiles that can't be recycled are used as fuel at a waste-to-energy plant.",
     "status": "partial"
@@ -93,7 +93,7 @@
     "id": "case-11",
     "category": "failure_case",
     "input": "   ",
-    "expected_behavior": "Whitespace-only input is treated the same as empty input -- a friendly message, no crash.",
+    "expected_behavior": "Whitespace-only input is treated the same as empty input, an informative message is shown and the application does not crash.",
     "expected_category": null,
     "actual_result": "Please describe the item (e.g. 'pizza box') before sending.",
     "status": "pass"
@@ -105,6 +105,42 @@
     "expected_behavior": "Out-of-scope question, unrelated to waste sorting. WasteBuddy's classification prompt now asks the model to flag this as off_topic instead of forcing a category, so the app should reply with a polite redirect back to waste sorting rather than a nonsensical classification like 'Mixed waste'.",
     "expected_category": null,
     "expected_marker": "doesn't look like a waste item",
+    "actual_result": "",
+    "status": ""
+  },
+  {
+    "id": "case-13",
+    "category": "successful_case",
+    "input": "bricks from a wall renovation",
+    "expected_behavior": "Classifies the item as Construction and renovation waste, a category added after the first evaluation round.",
+    "expected_category": "Construction and renovation waste",
+    "actual_result": "",
+    "status": ""
+  },
+  {
+    "id": "case-14",
+    "category": "successful_case",
+    "input": "grass clippings",
+    "expected_behavior": "Classifies the item as Garden waste, a category added after the first evaluation round.",
+    "expected_category": "Garden waste",
+    "actual_result": "",
+    "status": ""
+  },
+  {
+    "id": "case-15",
+    "category": "successful_case",
+    "input": "broken electric kettle",
+    "expected_behavior": "Classifies the item as Electrical and electronic equipment (WEEE), because any electric device belongs to this category.",
+    "expected_category": "Electrical and electronic equipment (WEEE)",
+    "actual_result": "",
+    "status": ""
+  },
+  {
+    "id": "case-16",
+    "category": "successful_case",
+    "input": "empty cereal box",
+    "expected_behavior": "Classifies the item as Cardboard / Carton.",
+    "expected_category": "Cardboard / Carton",
     "actual_result": "",
     "status": ""
   }
