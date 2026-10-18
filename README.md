@@ -175,13 +175,13 @@ The tests cover the service layer, the history, the drop-off finder and the Stop
 
 ## Evaluation
 
-A 12-case evaluation dataset and script are in [`evaluation/`](evaluation/), covering three categories: typical and successful inputs, difficult and edge-case inputs, and failure and adversarial inputs such as empty input, whitespace, and out-of-scope questions. Run it with:
+A 16-case evaluation dataset and script are in [`evaluation/`](evaluation/), covering three categories: typical and successful inputs, difficult and edge-case inputs, and failure and adversarial inputs such as empty input, whitespace, and out-of-scope questions. Run it with:
 
 ```bash
 python -m evaluation.run_evaluation
 ```
 
-Latest recorded run: 9 of 12 cases were automatically graded as correct, 0 failed, and 3 were flagged `partial` for manual review, since those cases have no single objectively correct answer. **This run predates the off-topic-handling and memory updates above.** Case-12 (the out-of-scope question) is now graded automatically against a required phrase in the redirect message rather than left as `partial`, and is expected to pass once re-run, since WasteBuddy no longer forces a classification onto out-of-scope input. Re-run the command above after pulling these changes and update the numbers here and in [`evaluation/evaluation_results.md`](evaluation/evaluation_results.md) rather than assuming the outcome; the graded raw output is in [`evaluation/test_cases.json`](evaluation/test_cases.json). The construction waste and garden waste categories and the drop-off finder were also added after that run, so the evaluation should be re-run once more before the final submission.
+Latest recorded run (18 October 2026): 14 of 16 cases were automatically graded as correct, 0 failed, and 2 were flagged `partial` for manual review, since those cases have no single objectively correct answer. The run includes the off-topic handling, the construction waste and garden waste categories and the four cases added after the first round. The graded raw output is in [`evaluation/test_cases.json`](evaluation/test_cases.json), and the analysis is in [`evaluation/evaluation_results.md`](evaluation/evaluation_results.md).
 
 ## Known limitations
 
