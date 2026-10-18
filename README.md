@@ -78,7 +78,7 @@ Ollama (Local LLM Server)
 
 ## Additional AI capability
 
-Select at least one additional capability to implement for your final project:
+The chosen additional capabilities for the project:
 
 - [ ] RAG (Retrieval-Augmented Generation)
 - [x] Tools / External API integration
