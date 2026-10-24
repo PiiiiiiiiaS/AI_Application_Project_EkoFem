@@ -7,6 +7,11 @@
 - Patrik
 - Piia
 
+## Team work
+The project was carried out in shared team sessions. We planned the solution together, chose the models and the data sources based on shared opinions, and refined the application iteratively until the submitted version. The source code was written collaboratively during these sessions, with AI used to help build the application and the user interface.
+ 
+The workload was shared equally between the team members. Please note that the commit history does not reflect the amount of work that each member has done. During the shared sessions, the code was often committed by one person from one computer. 
+
 ## Problem
 Many people struggle with recycling and are unsure how to correctly sort waste items, especially ones that don't clearly fall into a single category (a greasy pizza box, a mixed-material package, a broken electronic item). Waste categorization is governed by national legislation, but generic AI advice often gets the specifics wrong, creating real friction and real environmental cost when items are sorted incorrectly.
 
