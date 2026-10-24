@@ -7,6 +7,9 @@
 - Patrik
 - Piia
 
+## Link to the presentation video
+https://kaltura.hamk.fi/media/wastebuddy+presentation/0_8f380qrw
+
 ## Team work
 The project was carried out in shared team sessions. We planned the solution together, chose the models and the data sources based on shared opinions, and refined the application iteratively until the submitted version. The source code was written collaboratively during these sessions, with AI used to help build the application and the user interface.
  
